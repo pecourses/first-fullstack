@@ -1,17 +1,14 @@
-// import {createStore} from 'redux';
+import { createStore } from 'redux';
+// import { composeWithDevTools } from 'redux-devtools-extension';
+import rootReducer from './../reducers'
 
-// const initialStore = {}
+const store = createStore(rootReducer);
 
-// // action ={type:'typeOfAction', ...}
-// const reducer = (store = initialStore, action)=>{
-//   const {type} =action;
-//   switch (type){
-//     // ...
-//     default:{
-//       return store;}
-//   }
-// }
+export default store;
 
-// const store = createStore();
+// flux
 
-// export default store;
+// redux: createStore
+//        combineReducers
+// react-redux: connect
+//              Provader

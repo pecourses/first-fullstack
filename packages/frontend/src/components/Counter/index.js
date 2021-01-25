@@ -1,38 +1,29 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { counterDecrement, counterIncrement, counterSetStep } from '../../actions/counterActionCreators';
+import {  useDispatch, useSelector } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as counterActionCreators from  '../../actions/counterActionCreators';
 
 const Counter = (props) => {
 
-  const { value, step, increment, decrement, setStep } = props
+  const { value, step} = useSelector((state)=>state.counter)
+
+  const dispatch = useDispatch();
+
+  const { counterIncrement, counterDecrement, counterSetStep } = bindActionCreators(counterActionCreators, dispatch);
 
   return (
     <div>
       <h1>{value}</h1>
       <div>
-        <button onClick={decrement}>-</button>
-        <button onClick={increment}>+</button>
+        <button onClick={()=>counterDecrement()}>-</button>
+        <button onClick={()=>counterIncrement()}>+</button>
       </div>
-      <input type="number" value={step} onChange={({ target: { value } }) => setStep(Number(value))} />
+      <input type="number" value={step} onChange={({ target: { value } }) => counterSetStep(Number(value))} />
     </div>
   );
 }
 
-function mapStateToProps(state) {
-  return state.counter;
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    increment: () => { dispatch(counterIncrement()) },
-    decrement: () => { dispatch(counterDecrement()) },
-    setStep: (value) => { dispatch(counterSetStep(value)) },
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Counter);
-
-
+export default Counter;
 
 
 // import React from 'react'

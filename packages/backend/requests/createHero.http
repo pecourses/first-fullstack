@@ -2,7 +2,7 @@ POST http://127.0.0.1:5000/api/superheroes
 Content-Type: application/json
 
 {
-  "nickname":"Natasha9",
+  "nickname":"Natasha33",
   "realName":"Natasha Romanova",
   "superpowers":["woman","red"],
   "originDescription":"Natasha from Rissia",

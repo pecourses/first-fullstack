@@ -1,6 +1,6 @@
-import { applyMiddleware, createStore } from 'redux';
+import {applyMiddleware, createStore} from 'redux';
 // import { composeWithDevTools } from 'redux-devtools-extension';
-import rootReducer from './../reducers'
+import rootReducer from './../reducers';
 import createSagaMiddleware from 'redux-saga';
 import rootSaga from '../sagas';
 
@@ -11,13 +11,13 @@ import rootSaga from '../sagas';
 //   return result
 // }
 
-const sagaMiddlewares = createSagaMiddleware();
+const sagaMiddleware = createSagaMiddleware();
 
-const rootMiddleware = applyMiddleware(sagaMiddlewares)
+const rootMiddleware = applyMiddleware(sagaMiddleware);
 
 const store = createStore(rootReducer, rootMiddleware);
 
-sagaMiddlewares.run(rootSaga)
+sagaMiddleware.run(rootSaga);
 
 export default store;
 
@@ -27,6 +27,6 @@ export default store;
 //        combineReducers
 //        applyMiddleware
 // react-redux: connect / useSelector + useDispatch
-//              Provader
+//              Provider
 // redux-saga: createReduxSaga
-//     sagaMiddlewares->rootSaga->(rest sagas)
+//     sagaMiddleware->rootSaga->(rest sagas)

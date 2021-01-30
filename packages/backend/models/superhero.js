@@ -9,19 +9,19 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    static associate(models) {
+    static associate (models) {
       // define association here
     }
-  };
+  }
   Superhero.init({
     nickname: {
-      type:DataTypes.STRING,
+      type: DataTypes.STRING,
       require: true,
-      unique:true,
+      unique: true
     },
     realName: {
       type: DataTypes.STRING,
-      require: true,
+      require: true
     },
     originDescription: DataTypes.STRING,
     superpowers: {
@@ -30,13 +30,13 @@ module.exports = (sequelize, DataTypes) => {
     },
     catchPhrase: {
       type: DataTypes.STRING,
-      require: true,
+      require: true
     },
     images: {
       type: DataTypes.ARRAY(DataTypes.STRING),
       defaultValue: []
     }
-    
+
   }, {
     sequelize,
     modelName: 'Superhero',

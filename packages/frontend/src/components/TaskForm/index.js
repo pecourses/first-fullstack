@@ -1,17 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {connect} from 'react-redux';
-import {Formik, Form, Field} from 'formik';
-import {createTask} from '../../actions/todoActionCreators';
+import { connect } from 'react-redux';
+import { Formik, Form, Field } from 'formik';
+import { createTask } from '../../actions/todoActionCreators';
 
 const TaskForm = props => {
-  const {createTaskCb} = props;
+  // eslint-disable-next-line react/prop-types
+  const { createTaskCb } = props;
 
   return (
     <Formik
       initialValues={{
         data: 'New Task ',
-        isDone: false,
+        isDone: false
       }}
       onSubmit={values => createTaskCb(values)}
     >
@@ -27,13 +28,13 @@ const TaskForm = props => {
 };
 
 TaskForm.propTypes = {
-  props: PropTypes,
+  props: PropTypes
 };
 
 const mapDispatchToProps = dispatch => ({
   createTaskCb: values => {
     dispatch(createTask(values));
-  },
+  }
 });
 
 export default connect(null, mapDispatchToProps)(TaskForm);

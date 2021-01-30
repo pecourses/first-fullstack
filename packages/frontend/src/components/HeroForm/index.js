@@ -1,13 +1,13 @@
-import {Field, Form, Formik} from 'formik';
+import { Field, Form, Formik } from 'formik';
 import React from 'react';
-import {useDispatch} from 'react-redux';
-import {bindActionCreators} from 'redux';
+import { useDispatch } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import * as heroesActionCreators from './../../actions/heroesActionsCreators';
 
-function HeroForm() {
+function HeroForm () {
   const dispatch = useDispatch();
 
-  const {createHero} = bindActionCreators(heroesActionCreators, dispatch);
+  const { createHero } = bindActionCreators(heroesActionCreators, dispatch);
 
   return (
     <Formik
@@ -15,7 +15,7 @@ function HeroForm() {
         nickname: '',
         realName: '',
         originDescription: '',
-        catchPhrase: '',
+        catchPhrase: ''
         // superpowers: '',
       }}
       onSubmit={values => {

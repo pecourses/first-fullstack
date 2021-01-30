@@ -1,9 +1,9 @@
 import axios from 'axios';
 
 const apiInstance = axios.create({
-  baseURL: 'http://localhost:5000/api',
+  baseURL: 'http://localhost:5000/api'
 });
 
 export const createHero = data => apiInstance.post('/superheroes', data);
 // пагинация захардкожена
-export const getHeroes = () => apiInstance.get('/superheroes?page=2&item_on_page=5');
+export const getHeroes = (params) => apiInstance.get(`/superheroes?page=${params.page}&results=${params.results}`);

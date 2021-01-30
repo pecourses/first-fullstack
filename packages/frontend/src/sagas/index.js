@@ -1,8 +1,8 @@
-import {takeLatest} from 'redux-saga/effects';
+import { takeLatest } from 'redux-saga/effects';
 import ACTION_TYPES from '../actions/types';
-import {createHeroSaga, getHeroesSaga} from './heroesSagas';
+import { createHeroSaga, getHeroesSaga } from './heroesSagas';
 
-function* rootSaga() {
+function * rootSaga () {
   yield takeLatest(ACTION_TYPES.CREATE_HERO, createHeroSaga);
   yield takeLatest(ACTION_TYPES.GET_HEROES, getHeroesSaga);
 }

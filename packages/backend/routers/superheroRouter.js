@@ -1,13 +1,13 @@
 const { Router } = require('express');
 const { superheroController } = require('./../controllers');
-const {upload} = require('./../middleware');
+const {upload, reducePagination} = require('./../middleware');
 
 const superheroRouter = Router();
 
 superheroRouter
   .route('/')
   .post(superheroController.create)
-  .get(superheroController.getMany);
+  .get(reducePagination, superheroController.getMany);
 
 // '/api/superhoroes/2'
 superheroRouter

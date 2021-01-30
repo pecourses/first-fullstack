@@ -7,6 +7,6 @@ const rootReducer = combineReducers({
   counter: counterReducer,
   todo: todoReducer,
   heroes: heroesReducer
-})
+});
 
 export default rootReducer;

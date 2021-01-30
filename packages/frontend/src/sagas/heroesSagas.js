@@ -1,20 +1,20 @@
-import {put} from 'redux-saga/effects';
+import { put } from 'redux-saga/effects';
 import {
   createHeroError,
   createHeroRequest,
   createHeroSuccess,
   getHeroesError,
   getHeroesRequest,
-  getHeroesSuccess,
+  getHeroesSuccess
 } from '../actions/heroesActionsCreators';
 import * as API from './../api';
 
-export function* createHeroSaga({data}) {
+export function * createHeroSaga ({ data }) {
   yield put(createHeroRequest());
 
   try {
     const {
-      data: {data: hero},
+      data: { data: hero }
     } = yield API.createHero(data);
     yield put(createHeroSuccess(hero));
   } catch (error) {
@@ -22,13 +22,15 @@ export function* createHeroSaga({data}) {
   }
 }
 
-export function* getHeroesSaga() {
+export function * getHeroesSaga (action) {
+  const {params} = action;
+
   yield put(getHeroesRequest());
 
   try {
     const {
-      data: {data: heroes},
-    } = yield API.getHeroes();
+      data: { data: heroes }
+    } = yield API.getHeroes(params);
     yield put(getHeroesSuccess(heroes));
   } catch (error) {
     yield put(getHeroesError(error));

@@ -1,11 +1,12 @@
-import React, {useEffect} from 'react';
-import {useDispatch, useSelector} from 'react-redux';
-import {bindActionCreators} from 'redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import * as heroesActionCreators from './../../actions/heroesActionsCreators';
 
-function HeroesListItem(props) {
+function HeroesListItem (props) {
   const {
-    hero: {id, nickname, realName, originDescription, catchPhrase, superpowers},
+    // eslint-disable-next-line react/prop-types
+    hero: { id, nickname, realName, originDescription, catchPhrase, superpowers }
   } = props;
 
   return (
@@ -16,18 +17,19 @@ function HeroesListItem(props) {
   );
 }
 
-function HeroesList() {
-  const {heroes, isFetching, error} = useSelector(state => state.heroes);
+function HeroesList () {
+  const { heroes, isFetching, error } = useSelector(state => state.heroes);
   const dispatch = useDispatch();
-  const {getHeroes} = bindActionCreators(heroesActionCreators, dispatch);
+  const { getHeroes } = bindActionCreators(heroesActionCreators, dispatch);
 
   useEffect(() => {
-    getHeroes();
+    getHeroes({page:1, results:10});
   }, []);
 
   return (
     <ul>
       {heroes.map(h => (
+        // eslint-disable-next-line react/jsx-key
         <HeroesListItem hero={h} />
       ))}
       {isFetching && <li>Loading...</li>}

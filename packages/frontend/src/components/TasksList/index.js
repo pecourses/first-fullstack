@@ -1,23 +1,30 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import PropTypes from 'prop-types';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 
-function TasksListItem(props) {
-  const {task: t} = props;
+function TasksListItem (props) {
+  // eslint-disable-next-line react/prop-types
+  const { task: t } = props;
 
   return (
     <li key={t.id}>
       {t.data}
-      <input type="checkbox" checked={t.isDone} />
+      <input type="checkbox" checked={t.isDone} onChange={}>
+        <button onClick={}>Remone task</button>
     </li>
   );
 }
 
 const TasksList = props => {
-  const {tasks, isFetching, error} = props;
+  // eslint-disable-next-line react/prop-types
+  const { tasks } = props;
   return (
+    // eslint-disable-next-line react/jsx-no-comment-textnodes
     <ul>
+      // eslint-disable-next-line react/prop-types
       {tasks.map(t => (
+        // eslint-disable-next-line react/jsx-key
         <TasksListItem task={t} />
       ))}
     </ul>
@@ -25,7 +32,7 @@ const TasksList = props => {
 };
 
 TasksList.propTypes = {
-  props: PropTypes,
+  props: PropTypes
 };
 
 const mapStateToProps = state => state.todo;

@@ -1,18 +1,17 @@
-import ACTION_TYPES from "../actions/types";
+import ACTION_TYPES from '../actions/types';
 
 const initialState = {
   users: [],
   isFetching: false,
-  error: null,
-}
+  error: null
+};
 
 let id = 0;
 
 const usersReduser = (state = initialState, action) => {
   const { type } = action;
-  const { users, isFetching, error } = state;
+  const { users } = state;
   switch (type) {
-
     case ACTION_TYPES.CREATE_USER: {
       const { data } = action;
       const newUser = {
@@ -22,7 +21,7 @@ const usersReduser = (state = initialState, action) => {
 
       return {
         ...state, users: newUsers
-      }
+      };
     }
 
     case ACTION_TYPES.UPDATE_USER: {
@@ -36,7 +35,7 @@ const usersReduser = (state = initialState, action) => {
 
       return {
         ...state,
-        newUsers,
+        newUsers
       };
     }
 
@@ -48,20 +47,17 @@ const usersReduser = (state = initialState, action) => {
         const userIndex = users.findIndex((user) => user.Id === userId);
         newUsers.splice(userIndex, 1);
       });
-      
+
       return {
         ...state,
-        newUsers,
+        newUsers
       };
     }
     default: {
       return state;
     }
-    }
-    default: { return state; }
-
   }
-}
+};
 
 export default usersReduser;
 

@@ -23,7 +23,7 @@ function HeroesList () {
   const { getHeroes } = bindActionCreators(heroesActionCreators, dispatch);
 
   useEffect(() => {
-    getHeroes({page:1, results:10});
+    getHeroes({ page: 1, results: 10 });
   }, []);
 
   return (

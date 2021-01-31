@@ -10,8 +10,8 @@ function TasksListItem (props) {
   return (
     <li key={t.id}>
       {t.data}
-      <input type="checkbox" checked={t.isDone} onChange={}>
-        <button onClick={}>Remone task</button>
+      <input type="checkbox" checked={t.isDone}/>
+        <button>Remove task</button>
     </li>
   );
 }
@@ -20,9 +20,7 @@ const TasksList = props => {
   // eslint-disable-next-line react/prop-types
   const { tasks } = props;
   return (
-    // eslint-disable-next-line react/jsx-no-comment-textnodes
     <ul>
-      // eslint-disable-next-line react/prop-types
       {tasks.map(t => (
         // eslint-disable-next-line react/jsx-key
         <TasksListItem task={t} />

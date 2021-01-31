@@ -23,7 +23,7 @@ export function * createHeroSaga ({ data }) {
 }
 
 export function * getHeroesSaga (action) {
-  const {params} = action;
+  const { params } = action;
 
   yield put(getHeroesRequest());
 

@@ -1,4 +1,3 @@
-import { React } from 'react';
 import Counter from './components/Counter';
 import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
 import Todo from './pages/Todo';
